@@ -12,16 +12,13 @@
     <title>Mobiles</title>
 </head>
 <body>
+<a href="/static/j_spring_security_logout">logout</a><br>
+
 <c:forEach items="${mobiles}" var="mobile">
     ${mobile.id} ${mobile.manufacturer.name} ${mobile.model} ${mobile.price} <br>
 </c:forEach>
 
-<form action="/addMobile" method="post">
-    <label>Название <input type="text" name="name"></label>
-    <label>Цена <input type="text" name="price"></label>
-    <input type="hidden" name="id" value="${manId}">
-    <input type="submit"/>
-</form>
+<a href="../admin/addMobile/${manId}">Добавить</a>
 
 </body>
 </html>

@@ -12,8 +12,9 @@
     <title>Manufacturers</title>
     <link href="/resources/style.css" rel="stylesheet">
 </head>
-<div class="myStyle">hello</div>
     <body>
+    <a href="/static/j_spring_security_logout">logout</a><br>
+
     <c:forEach items="${manufacturers}" var="manufacturer">
         ${manufacturer.id}   <a
             href="/manufacturer/${manufacturer.id}"> ${manufacturer.name} </a>${manufacturer.country}</a> <br>

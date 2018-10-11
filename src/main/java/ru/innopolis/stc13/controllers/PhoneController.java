@@ -2,12 +2,10 @@ package ru.innopolis.stc13.controllers;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import ru.innopolis.stc13.pojo.Manufacturer;
 import ru.innopolis.stc13.pojo.Mobile;
 import ru.innopolis.stc13.service.ManufacturerService;
@@ -41,18 +39,5 @@ public class PhoneController {
         model.addAttribute("manId", id);
         return "mobiles";
     }
-
-    @RequestMapping("/addMobile")
-    public String addMobile(@RequestParam String name,
-                            @RequestParam String price,
-                            @RequestParam String id,
-                            Model model) {
-        int manId = Integer.parseInt(id);
-        Float mobPrice = Float.parseFloat(price);
-        Manufacturer manufacturer = manufacturerService.get(manId);
-        mobileService.add(new Mobile(null, name, mobPrice, manufacturer));
-        return "redirect:manufacturer/" + manId;
-    }
-
 
 }
